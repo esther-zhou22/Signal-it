@@ -1,0 +1,27 @@
+body{
+    background-color: #f7f5ef;
+    padding-top: 60px; /* Compenser la hauteur de la barre fixe */
+
+
+}
+.navbar {
+  position: fixed; /* Fixe l'élément par rapport au viewport */
+  top: 0;          /* Aligné en haut */
+  left: 0;
+  width: 100%;     /* Prend toute la largeur */
+  height: 60px;
+  background-color: #e30613;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  z-index: 1000;   /* S'assure que la nav est au-dessus du reste */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
