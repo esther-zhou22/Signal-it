@@ -1,7 +1,6 @@
 body{
     background-color: #f7f5ef;
-    padding-top: 60px; /* Compenser la hauteur de la barre fixe */
-
+    font-family: Text Me One Regular;
 
 }
 .navbar {
@@ -12,9 +11,9 @@ body{
   height: 60px;
   background-color: #e30613;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  padding: 0 2rem;
+  padding: 0 5%;
   z-index: 1000;   /* S'assure que la nav est au-dessus du reste */
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
@@ -23,5 +22,33 @@ body{
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 20px;
+  margin: 0;
+  padding: 0;      /* Supprime le décalage automatique à gauche */
+  gap: 30px;       /* Espace contrôlé entre les liens */
+}
+
+.nav-links a{
+  text-decoration: none; /* Supprime le soulignement */
+  color: #f7f5ef;          /* Force la couleur (ex: blanc) */
+  transition: 0.3s;      /* Optionnel : pour un survol fluide */
+}
+
+.nav-links a:visited {
+  color: white; 
+}
+
+.nav-links a:hover {
+  color: #ffcc00;        /* Change de couleur uniquement au survol */
+  text-decoration: none; /* S'assure qu'aucun trait n'apparaît */
+}
+
+.content {
+  /* 1. Marge pour ne pas être caché par le menu */
+  margin-top: 80px; 
+
+  /* 2. Marges latérales pour que le texte ne colle pas aux bords */
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px; /* Largeur maximale pour la lisibilité */
+  padding: 20px;     /* Espace intérieur pour le confort visuel */
 }
