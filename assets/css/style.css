@@ -1,54 +1,310 @@
-body{
-    background-color: #f7f5ef;
-    font-family: Text Me One Regular;
-
-}
-.navbar {
-  position: fixed; /* Fixe l'élément par rapport au viewport */
-  top: 0;          /* Aligné en haut */
-  left: 0;
-  width: 100%;     /* Prend toute la largeur */
-  height: 60px;
-  background-color: #e30613;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 0 5%;
-  z-index: 1000;   /* S'assure que la nav est au-dessus du reste */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+:root {
+    --primary-color: #E30613; /* Rouge type Material Design */
+    --text-color: #333;
+    --bg-color: #F4F4F4; /* Gris très clair comme sur l'image */
+    --white: #FFF;
+    --spacing: 1.5rem;
+    --font-stack: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-.nav-links {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;      /* Supprime le décalage automatique à gauche */
-  gap: 30px;       /* Espace contrôlé entre les liens */
+body {
+    font-family: var(--font-stack);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
-.nav-links a{
-  text-decoration: none; /* Supprime le soulignement */
-  color: #f7f5ef;          /* Force la couleur (ex: blanc) */
-  transition: 0.3s;      /* Optionnel : pour un survol fluide */
+/* Header */
+.main-header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 1rem var(--spacing);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.nav-links a:visited {
-  color: white; 
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    border: 2px solid var(--white);
+    padding: 0.2rem 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.nav-links a:hover {
-  color: #ffcc00;        /* Change de couleur uniquement au survol */
-  text-decoration: none; /* S'assure qu'aucun trait n'apparaît */
+/* Hamburger Menu Icon (CSS Pure) */
+#menu-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
 }
 
-.content {
-  /* 1. Marge pour ne pas être caché par le menu */
-  margin-top: 80px; 
-
-  /* 2. Marges latérales pour que le texte ne colle pas aux bords */
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1200px; /* Largeur maximale pour la lisibilité */
-  padding: 20px;     /* Espace intérieur pour le confort visuel */
+.hamburger {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: var(--white);
+    position: relative;
+    transition: background 0.2s;
 }
+
+.hamburger::before, .hamburger::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    background: var(--white);
+    left: 0;
+    transition: top 0.2s, transform 0.2s;
+}
+
+.hamburger::before { top: -8px; }
+.hamburger::after { top: 8px; }
+
+/* État Actif du Menu (Animation croix) */
+#menu-btn.active .hamburger { background: transparent; }
+#menu-btn.active .hamburger::before { top: 0; transform: rotate(45deg); }
+#menu-btn.active .hamburger::after { top: 0; transform: rotate(-45deg); }
+
+/* Contenu Principal */
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 var(--spacing);
+}
+
+h2 {
+    font-weight: 400;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    margin-top: 2.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    text-align: justify; /* Pour coller au look "bloc" de l'image */
+}
+
+.highlight {
+    font-weight: 500;
+    margin-top: 1.5rem;
+}
+
+/* Navigation Mobile Overlay (Style Modale) */
+.overlay-hidden {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4); /* Le fond grisé de ta capture */
+    backdrop-filter: blur(3px); /* Effet de flou sur l'arrière-plan */
+    z-index: 1500;
+    
+    /* Animation et affichage */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    
+    /* Centrage du menu ou positionnement */
+    display: flex;
+    justify-content: flex-end; /* Colle le menu à droite comme sur mobile */
+}
+
+/* État ouvert */
+.overlay-hidden.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Le bloc blanc contenant les liens */
+.nav-content {
+    background: white;
+    width: 70%; /* Largeur du panneau blanc */
+    max-width: 300px;
+    height: 100%;
+    padding-top: 5rem; /* Espace pour ne pas cacher le bouton burger */
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    transform: translateX(100%); /* Caché à droite par défaut */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Animation d'entrée du panneau blanc */
+.overlay-hidden.open .nav-content {
+    transform: translateX(0);
+}
+
+.nav-content ul {
+    list-style: none;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Espace entre les liens */
+}
+
+.nav-content a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.5rem; /* Texte plus gros comme sur ta capture */
+    font-weight: 400;
+}
+
+/* --- Styles Spécifiques Page d'Accueil --- */
+
+/* Ajustement vertical pour décoller du header */
+.home-content {
+    margin-top: 15vh; /* Le contenu commence à 15% de la hauteur d'écran */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligne tout à gauche */
+    gap: 2rem; /* Espace entre Titre, Texte et Bouton */
+}
+
+h1 {
+    font-weight: 400;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-text {
+    font-size: 1.1rem;
+    max-width: 500px; /* Évite que le texte soit trop large sur grand écran */
+    margin-bottom: 1rem;
+}
+
+/* Bouton "Ajouter un mobilier" */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    font-size: 1.1rem;
+    border-radius: 2px; /* Coins légèrement adoucis ou carrés selon ton goût */
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.btn-primary:hover {
+    background-color: #b71c1c; /* Rouge un peu plus foncé au survol */
+    transform: translateY(-1px);
+}
+
+.btn-primary:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+
+/* Bouton Secondaire (Outline) */
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* --- STYLE FORMULAIRE (add-sign.html) --- */
+
+.hidden { display: none !important; }
+
+/* Zone Upload */
+.upload-zone {
+    display: block;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    padding: 3rem 1rem;
+    text-align: center;
+    background: #fafafa;
+    cursor: pointer;
+    margin-top: 2rem;
+    transition: all 0.2s;
+}
+.upload-zone:active { background: #eee; border-color: var(--primary-color); }
+.upload-zone input { display: none; }
+.icon-camera { font-size: 3rem; display: block; margin-bottom: 0.5rem; opacity: 0.6; }
+
+/* Zone Skip */
+.skip-container { text-align: center; margin-top: 2rem; }
+.separator-text { margin-bottom: 1rem; color: #888; font-size: 0.9rem; }
+
+/* Formulaire */
+.form-group { margin-bottom: 1.5rem; }
+.required { color: var(--primary-color); }
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+select, input[type="text"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: white;
+    font-size: 1rem;
+}
+
+/* Géolocalisation */
+.geo-wrapper { display: flex; gap: 0.5rem; }
+.geo-btn {
+    background: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    flex-shrink: 0; /* Empêche le bouton de s'écraser */
+}
+.help-text { font-size: 0.8rem; color: #666; margin-top: 0.2rem; display: block; }
+
+/* Preview Image */
+#preview-container { 
+    text-align: center; 
+    margin-bottom: 2rem; 
+    background: #f0f0f0; 
+    padding: 1rem; 
+    border-radius: 8px; 
+}
+#img-preview { 
+    max-width: 100%; 
+    max-height: 250px; 
+    border-radius: 4px; 
+    display: block; 
+    margin: 0 auto 1rem auto;
+}
+.link-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+/* Actions */
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.form-actions button { flex: 1; }
