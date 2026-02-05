@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signal It - Nouveau Relevé</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">SIGNAL IT</div>
+        <button id="menu-btn" aria-label="Menu" style="z-index: 2000;">
+            <span class="hamburger"></span>
+        </button>
+        
+        <div id="mobile-overlay" class="overlay-hidden">
+            <nav class="nav-content">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="map.html">Carte</a></li>
+                    <li><a href="about.html">Qui sommes-nous ?</a></li>
+                    <li><a href="account.html">Mon compte</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>Nouveau relevé</h1>
+
+        <div id="step-photo">
+            <p>Prenez une photo du mobilier pour gagner des points supplémentaires.</p>
+            
+            <label class="upload-zone">
+                <span class="icon-camera">📷</span>
+                <span>Toucher pour prendre une photo</span>
+                <input type="file" id="photo-input" accept="image/*" capture="environment">
+            </label>
+
+            <div class="skip-container">
+                <p class="separator-text">ou</p>
+                <button type="button" id="btn-skip" class="btn-secondary">
+                    Passer cette étape
+                </button>
+            </div>
+        </div>
+
+        <form id="step-form" class="hidden">
+            
+            <div id="preview-container">
+                <img id="img-preview" src="" alt="Aperçu">
+                <button type="button" id="btn-retake" class="link-btn">Changer la photo</button>
+            </div>
+
+            <!--<div class="form-group">
+                <label for="nature">Nature de l'objet <span class="required">*</span></label>
+                <select id="nature" required>
+                    <option value="" disabled selected>Sélectionner...</option>
+                    <option value="panneau_danger">Panneau réglementaire</option>
+                    <option value="panneau_interdiction">Panneau directionnel</option>
+                    <option value="panneau_indication">Panneau informatif</option>
+                </select>
+            </div>-->
+            <div class="form-group">
+                <div class="label-row">
+                    <label for="nature">Nature de l'objet <span class="required">*</span></label>
+                    <button type="button" id="btn-show-help" class="info-btn" aria-label="Voir l'aide visuelle">
+                        ?
+                    </button>
+                </div>
+
+                <select id="nature" required>
+                    <option value="" disabled selected>Sélectionner...</option>
+                    <option value="panneau_danger">Panneau réglementaire</option>
+                    <option value="panneau_interdiction">Panneau directionnel</option>
+                    <option value="panneau_indication">Panneau informatif</option>
+                </select>
+            </div>
+
+            <div id="modal-help" class="modal-hidden">
+                <div class="modal-content">
+                    <span id="close-help" class="close-modal">&times;</span>
+                    <h3>Guide des panneaux</h3>
+                    
+                    <img src="assets/images/guide-panneaux.png" alt="Guide visuel des types de panneaux" class="help-image" >
+                    
+                    <p class="modal-legend">Cliquez sur la croix ou en dehors pour fermer.</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="etat">État général <span class="required">*</span></label>
+                <select id="etat" required>
+                    <option value="" disabled selected>Sélectionner...</option>
+                    <option value="neuf">Neuf / Très bon état</option>
+                    <option value="bon">Bon état</option>
+                    <option value="abime">Abîmé / Tagué</option>
+                    <option value="casse">Cassé / Manquant</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Localisation <span class="required">*</span></label>
+                <div class="geo-wrapper">
+                    <input type="text" id="localisation" placeholder="Appuyez sur le bouton GPS" readonly required>
+                    <button type="button" id="btn-geo" class="geo-btn" title="Me géolocaliser">
+                        📍
+                    </button>
+                </div>
+                <small class="help-text">Position actuelle requise.</small>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" id="btn-back" class="btn-secondary">Retour</button>
+                <button type="submit" class="btn-primary">Valider le signalement</button>
+            </div>
+        </form>
+
+    </main>
+
+    <script src="assets/script.js"></script>
+    <script src="assets/add-sign.js"></script>
+</body>
+</html>

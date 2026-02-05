@@ -1,21 +1,53 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>about</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="assets/css/style.css" />
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signal It - À propos</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
 
-    </head>
-    <body>
-    <nav class="navbar">
-  <div class="logo"><img src="assets/images/logo/logo-signal-it.png" style="width: 16.66%; height: auto;" alt="Logo signal it" ></div>
-  <ul class="nav-links">
-    <li><a href="#home">Accueil</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-        <h1>Qui sommes-nous ?</h1>
-        <p></p>
-    </body>
+    <header class="main-header">
+        <div class="logo">SIGNAL IT</div>
+        <button id="menu-btn" aria-label="Ouvrir le menu" style="z-index: 2000;">
+            <span class="hamburger"></span>
+        </button>
+        
+        <div id="mobile-overlay" class="overlay-hidden">
+            <nav class="nav-content">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="map.html">Carte</a></li>
+                    <li><a href="about.html">Qui sommes-nous ?</a></li>
+                    <li><a href="account.html">Mon compte</a></li> </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section>
+            <h2>Qui sommes-nous ?</h2>
+            <p>
+                Nous sommes une équipe de 6 étudiants de Centrale Lille, ayant pour but d'apporter une solution au manque de données sur la localisation des panneaux au sein de la MEL.
+            </p>
+        </section>
+
+        <section>
+            <h2>A propos</h2>
+            <p>
+                Signal it est un site collaboratif permettant la répertorisation des panneaux de la Métropole Européenne Lilloise. Le but est de créer ensemble une base de données sur les panneaux de signalisation, que ce soit sur leur type, leur état, ou encore leur position géographique.
+            </p>
+            <p>
+                Chaque utilisateur souhaitant participer à cette initiative peut se créer un compte sur notre site. Nous vous invitons à prendre des photos lorsque vous rencontrez un panneau sur votre chemin, en allant au travail ou lors de votre ballade quotidienne par exemple, et à la renseigner sur notre site à l'aide du bouton + se situant dans la barre du haut.
+            </p>
+            <p>
+                Lorsque vous ajoutez un panneau en étant connecté, cela vous rapporte des points, que vous pouvez ensuite échanger dans l'onglet "Mes récompenses" situé dans votre "Tableau de bord." Vous pouvez aussi consulter la liste des panneaux que vous avez trouvé à ce jour dans votre "Sigdex".
+            </p>
+            <p class="highlight">Bonne chasse aux panneaux !</p>
+        </section>
+    </main>
+
+    <script src="assets/script.js"></script>
+</body>
 </html>
