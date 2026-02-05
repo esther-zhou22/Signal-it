@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signal It - À propos</title>
+    <title>Signal It - Carte de la MEL</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 </head>
 <body>
 
     <header class="main-header">
-        <div class="logo">SIGNAL IT</div>
-        <button id="menu-btn" aria-label="Ouvrir le menu" style="z-index: 2000;">
+        <a href="index.html" class="logo">SIGNAL IT</a>
+        <button id="menu-btn" aria-label="Menu">
             <span class="hamburger"></span>
         </button>
         
@@ -18,13 +20,74 @@
             <nav class="nav-content">
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
-                    <li><a href="map.html">Carte</a></li>
+                    <li><a href="map.html" style="font-weight:bold;">Carte</a></li>
                     <li><a href="about.html">Qui sommes-nous ?</a></li>
-                    <li><a href="account.html">Mon compte</a></li> </ul>
+                    <li><a href="account.html">Mon compte</a></li>
+                </ul>
             </nav>
         </div>
     </header>
 
+    <main class="container">
+        <h1>Carte des signalements</h1>
+        
+        <div class="tabs-control">
+            <button id="btn-tab-map" class="tab-btn active">Carte</button>
+            <button id="btn-tab-table" class="tab-btn">Liste & Données</button>
+        </div>
+
+        <div id="view-map" class="view-content active">
+            <div id="map-container"></div>
+            <p class="map-legend">📍 Cliquez sur un marqueur pour voir les détails.</p>
+        </div>
+
+        <div id="view-table" class="view-content">
+            
+            <div class="toolbar">
+                <div class="filters">
+                    <select id="filter-type">
+                        <option value="all">Tous les types</option>
+                        <option value="Réglementaire">Panneaux Réglementaires</option>
+                        <option value="Directionnel">Panneaux Directionnels</option>
+                        <option value="informatif">Panneaux Informatifs</option>
+                    </select>
+
+                    <select id="filter-etat">
+                        <option value="all">Tous les états</option>
+                        <option value="Neuf">Neuf / Très bon</option>
+                        <option value="Bon">Bon état</option>
+                        <option value="Abîmé">Abîmé</option>
+                    </select>
+                </div>
+
+                <button id="btn-export" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;"> 
+                    Exporter
+                </button>
+            </div>
+
+            <div class="table-wrapper">
+                <table id="signs-table">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>État</th>
+                            <th>Date</th>
+                            <th>Localisation</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </div>
+            <div id="no-result" class="hidden" style="text-align:center; padding:2rem; color:#666;">Aucun résultat trouvé.</div>
+        </div>
+
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
     <script src="assets/script.js"></script>
+    <script src="assets/map.js"></script>
 </body>
 </html>

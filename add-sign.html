@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signal It - Nouveau Relevé</title>
+    <script src="https://cdn.jsdelivr.net/npm/exif-js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
     <header class="main-header">
-        <div class="logo">SIGNAL IT</div>
+        <a href="index.html" class="logo">SIGNAL IT</a>
         <button id="menu-btn" aria-label="Menu" style="z-index: 2000;">
             <span class="hamburger"></span>
         </button>
@@ -53,15 +54,6 @@
                 <button type="button" id="btn-retake" class="link-btn">Changer la photo</button>
             </div>
 
-            <!--<div class="form-group">
-                <label for="nature">Nature de l'objet <span class="required">*</span></label>
-                <select id="nature" required>
-                    <option value="" disabled selected>Sélectionner...</option>
-                    <option value="panneau_danger">Panneau réglementaire</option>
-                    <option value="panneau_interdiction">Panneau directionnel</option>
-                    <option value="panneau_indication">Panneau informatif</option>
-                </select>
-            </div>-->
             <div class="form-group">
                 <div class="label-row">
                     <label for="nature">Nature de l'objet <span class="required">*</span></label>
@@ -103,7 +95,7 @@
             <div class="form-group">
                 <label>Localisation <span class="required">*</span></label>
                 <div class="geo-wrapper">
-                    <input type="text" id="localisation" placeholder="Appuyez sur le bouton GPS" readonly required>
+                    <input type="text" id="localisation" placeholder="Appuyez sur le bouton GPS" required>
                     <button type="button" id="btn-geo" class="geo-btn" title="Me géolocaliser">
                         📍
                     </button>
@@ -113,7 +105,7 @@
 
             <div class="form-actions">
                 <button type="button" id="btn-back" class="btn-secondary">Retour</button>
-                <button type="submit" class="btn-primary">Valider le signalement</button>
+                <button type="submit" class="btn-primary">Valider l'ajout</button>
             </div>
         </form>
 

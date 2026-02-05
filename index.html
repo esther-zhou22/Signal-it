@@ -9,7 +9,7 @@
 <body>
 
     <header class="main-header">
-        <div class="logo">SIGNAL IT</div>
+        <a href="index.html" class="logo">SIGNAL IT</a>
         <button id="menu-btn" aria-label="Ouvrir le menu" style="z-index: 2000;">
             <span class="hamburger"></span>
         </button>
@@ -24,12 +24,65 @@
             </nav>
         </div>
     </header>
-    <main class="container home-content">
-        <h1>Signal it</h1>
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Signal It</h1>
+                <p class="hero-subtitle">
+                    Une plateforme collaborative de rencesement de la signalétique des espaces naturels de la MEL<br>
+                    Devenez acteur de votre ville. Recensez le mobilier urbain, gagnez des points et améliorez l'espace public.
+                </p>
+                <div class="hero-buttons">
+                    <a href="add-sign.html" class="btn-primary">📷 Ajouter un panneau</a>
+                    <a href="map.html" class="btn-third">🗺️ Voir la carte</a>
+                </div>
+            </div>
+        </section>
 
-        <p>Plateforme collaborative de recensement de la signalétique et du mobilier urbain.</p>
+        <section class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-number" data-target="1250">0</span>
+                <span class="stat-label">Signalements</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="84">0</span>
+                <span class="stat-label">Contributeurs</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="12">0</span>
+                <span class="stat-label">Villes couvertes</span>
+            </div>
+        </section>
 
-        <a href="add-sign.html" class="btn-primary">Ajouter un mobilier</a>
+        <section class="how-it-works">
+            <h2>Comment ça marche ?</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-icon">📍</div>
+                    <h3>1. Repérez</h3>
+                    <p>Un panneau dans un espace naturel ?</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">📸</div>
+                    <h3>2. Signalez</h3>
+                    <p>Prenez une photo, géolocalisez et envoyez le panneau en 3 clics.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">🏆</div>
+                    <h3>3. Gagnez</h3>
+                    <p>Cumulez des points, débloquez des badges et gagnez des récompenses.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="top-contributors">
+            <h2>Héros de la semaine</h2>
+            <div class="contributors-list">
+                <div class="contributor-card">🥇 <strong>Explorateur59</strong> - 42 pts</div>
+                <div class="contributor-card">🥈 <strong>CityHunter</strong> - 38 pts</div>
+                <div class="contributor-card">🥉 <strong>LilleMaker</strong> - 25 pts</div>
+            </div>
+        </section>
     </main>
     <script src="assets/script.js"></script>
 </body>
