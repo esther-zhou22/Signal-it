@@ -18,9 +18,9 @@
             <nav class="nav-content">
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
-                    <li><a href="#">Carte</a></li>
-                    <li><a href="#">Qui sommes-nous ?</a></li>
-                    <li><a href="#">Mon compte</a></li>
+                    <li><a href="map.html">Carte</a></li>
+                    <li><a href="about.html">Qui sommes-nous ?</a></li>
+                    <li><a href="account.html">Mon compte</a></li>
                 </ul>
             </nav>
         </div>
@@ -53,16 +53,40 @@
                 <button type="button" id="btn-retake" class="link-btn">Changer la photo</button>
             </div>
 
-            <div class="form-group">
+            <!--<div class="form-group">
                 <label for="nature">Nature de l'objet <span class="required">*</span></label>
                 <select id="nature" required>
                     <option value="" disabled selected>Sélectionner...</option>
-                    <option value="panneau_danger">Panneau de danger (Triangle)</option>
-                    <option value="panneau_interdiction">Panneau d'interdiction (Rond)</option>
-                    <option value="panneau_indication">Panneau d'indication (Carré)</option>
-                    <option value="mobilier">Mobilier urbain (Banc, Poubelle)</option>
-                    <option value="eclairage">Éclairage / Feux</option>
+                    <option value="panneau_danger">Panneau réglementaire</option>
+                    <option value="panneau_interdiction">Panneau directionnel</option>
+                    <option value="panneau_indication">Panneau informatif</option>
                 </select>
+            </div>-->
+            <div class="form-group">
+                <div class="label-row">
+                    <label for="nature">Nature de l'objet <span class="required">*</span></label>
+                    <button type="button" id="btn-show-help" class="info-btn" aria-label="Voir l'aide visuelle">
+                        ?
+                    </button>
+                </div>
+
+                <select id="nature" required>
+                    <option value="" disabled selected>Sélectionner...</option>
+                    <option value="panneau_danger">Panneau réglementaire</option>
+                    <option value="panneau_interdiction">Panneau directionnel</option>
+                    <option value="panneau_indication">Panneau informatif</option>
+                </select>
+            </div>
+
+            <div id="modal-help" class="modal-hidden">
+                <div class="modal-content">
+                    <span id="close-help" class="close-modal">&times;</span>
+                    <h3>Guide des panneaux</h3>
+                    
+                    <img src="assets/images/guide-panneaux.png" alt="Guide visuel des types de panneaux" class="help-image" >
+                    
+                    <p class="modal-legend">Cliquez sur la croix ou en dehors pour fermer.</p>
+                </div>
             </div>
 
             <div class="form-group">

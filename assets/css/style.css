@@ -308,3 +308,224 @@ select, input[type="text"] {
     margin-top: 2rem;
 }
 .form-actions button { flex: 1; }
+
+/* --- BOUTON D'AIDE (?) --- */
+.label-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.5rem;
+}
+
+.info-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--primary-color); /* Rouge du site */
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+}
+
+/* --- MODALE (SUPERPOSITION) --- */
+.modal-hidden {
+    display: none; /* Caché par défaut */
+    position: fixed;
+    z-index: 3000; /* Très haut pour passer au-dessus du menu et du header */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fond noir semi-transparent */
+    backdrop-filter: blur(2px);
+    align-items: center;
+    justify-content: center;
+}
+
+/* Classe ajoutée en JS pour afficher */
+.modal-hidden.show {
+    display: flex; 
+}
+
+.modal-content {
+    background-color: white;
+    padding: 10px; /* Réduit le padding pour laisser plus de place à l'image */
+    border-radius: 8px;
+    
+    /* MODIFICATIONS ICI */
+    width: 95%; /* Prend 95% de la largeur de l'écran (mobile) */
+    max-width: 900px; /* Sur PC, s'arrête à 900px (au lieu de 500px) */
+    max-height: 90vh; /* Empêche la modale de dépasser la hauteur de l'écran */
+    overflow-y: auto; /* Permet de scroller si l'image est vraiment géante verticalement */
+    
+    position: relative;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* L'image dans la modale */
+.help-image {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Croix de fermeture */
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close-modal:hover { color: var(--primary-color); }
+.modal-legend { font-size: 0.8rem; color: #777; margin-top: 10px; }
+
+/* --- STYLE PAGE CONNEXION --- */
+
+/* Centrage vertical et horizontal */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Prend presque toute la hauteur */
+}
+
+.login-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1); /* Ombre douce */
+    width: 100%;
+    max-width: 400px; /* Ne devient jamais trop large */
+    text-align: center;
+}
+
+.login-card h2 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+.login-subtitle {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.full-width {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.login-footer {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.login-footer a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+.login-footer a:hover { text-decoration: underline; }
+
+.divider { margin: 0 0.5rem; color: #ccc; }
+
+/* Message d'erreur/info */
+#login-message {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+.msg-info { background: #e3f2fd; color: #0d47a1; }
+.msg-error { background: #ffebee; color: #c62828; }
+
+/* --- ESTHÉTIQUE DES CHAMPS (INPUTS) --- */
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left; /* Assure que le label est à gauche */
+}
+
+/* Le Label au dessus */
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #444;
+    letter-spacing: 0.5px;
+}
+
+/* Le Champ de saisie */
+input[type="email"],
+input[type="password"],
+input[type="text"],
+select {
+    width: 100%;
+    padding: 12px 16px; /* Plus d'espace interne (confort) */
+    
+    background-color: #f7f9fc; /* Fond gris très léger (moderne) */
+    border: 2px solid #e0e0e0; /* Bordure discrète */
+    border-radius: 8px; /* Coins arrondis plus prononcés */
+    
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: all 0.3s ease; /* Animation fluide */
+}
+
+/* Quand on clique dans le champ */
+input:focus, select:focus {
+    background-color: #fff; /* Devient blanc pur */
+    border-color: var(--primary-color); /* Devient Rouge Signal It */
+    outline: none; /* Enlève le contour bleu moche du navigateur */
+    
+    /* Petite lueur rouge autour (Shadow) */
+    box-shadow: 0 0 0 4px rgba(211, 47, 47, 0.1); 
+}
+
+/* Placeholder (le texte d'exemple) */
+::placeholder {
+    color: #bbb;
+    font-weight: 400;
+}
+
+/* --- Ajustements Forgot Password --- */
+
+/* Le lien retour un peu plus discret */
+.login-footer a {
+    color: #666;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-top: 1rem;
+    transition: color 0.2s;
+}
+
+.login-footer a:hover {
+    color: var(--primary-color);
+}
+
+/* Centre l'icone de succès si besoin */
+#step-success {
+    animation: fadeIn 0.5s ease-in;
+    text-align: center;
+}
+
+/* Petite animation d'apparition */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

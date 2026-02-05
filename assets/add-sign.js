@@ -43,6 +43,28 @@ document.addEventListener('DOMContentLoaded', () => {
         stepPhoto.classList.remove('hidden');
     });
 
+    // --- GESTION DE LA MODALE D'AIDE ---
+    const btnShowHelp = document.getElementById('btn-show-help');
+    const modalHelp = document.getElementById('modal-help');
+    const btnCloseHelp = document.getElementById('close-help');
+
+    // Ouvrir
+    btnShowHelp.addEventListener('click', () => {
+        modalHelp.classList.add('show');
+    });
+
+    // Fermer (Croix)
+    btnCloseHelp.addEventListener('click', () => {
+        modalHelp.classList.remove('show');
+    });
+
+    // Fermer (Clic en dehors de l'image)
+    modalHelp.addEventListener('click', (e) => {
+        if (e.target === modalHelp) {
+            modalHelp.classList.remove('show');
+        }
+    });
+
     // 4. Changer la photo
     btnRetake.addEventListener('click', () => {
         stepForm.classList.add('hidden');
