@@ -2,36 +2,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('login-form');
     const msgBox = document.getElementById('login-message');
 
-    // 1. Message si brouillon en attente
+    // 1. Check si l'utilisateur vient du formulaire (draft)
     const draft = localStorage.getItem('draft_signalement');
     if (draft) {
-        msgBox.textContent = "Connectez-vous pour valider votre ajout.";
-        msgBox.className = "msg-info";
+        msgBox.textContent = "Connectez-vous pour valider votre signalement en attente.";
+        msgBox.className = "msg-info"; // Affiche une info bleue
         msgBox.classList.remove('hidden');
     }
 
-    // 2. Soumission
+    // 2. Gestion de la soumission
     loginForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
+        // --- SIMULATION BACKEND ---
+        // Accepte n'importe quel mot de passe pour le moment
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
 
         if (email && password) {
-            // Simulation connexion
+            // Simulation : On enregistre un token fictif
             localStorage.setItem('user_token', 'demo_token_12345');
             localStorage.setItem('user_email', email);
 
-            // LOGIQUE DE REDIRECTION :
-            // Si un brouillon existe, on retourne le finir sur add-sign.html
-            // Sinon, on va sur le dashboard.html
-            
+            // --- REDIRECTION INTELLIGENTE ---
             if (localStorage.getItem('draft_signalement')) {
+                // Cas A : Il a un signalement en attente -> Retour au form
                 window.location.href = "add-sign.html";
             } else {
+                // Cas B : Connexion normale -> Tableau de bord
                 window.location.href = "dashboard.html"; 
             }
-
         } else {
             msgBox.textContent = "Erreur : Champs manquants.";
             msgBox.className = "msg-error";

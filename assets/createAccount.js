@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (localStorage.getItem('draft_signalement')) {
                 window.location.href = "add-sign.html";
             } else {
-                window.location.href = "index.html";
+                window.location.href = "dashboard.html";
             }
         }, 1000);
     });
