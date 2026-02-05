@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signal It - Inscription</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <a href="index.html" class="logo">SIGNAL IT</a>
+        <button id="menu-btn" aria-label="Menu" style="z-index: 2000;">
+            <span class="hamburger"></span>
+        </button>
+        
+        <div id="mobile-overlay" class="overlay-hidden">
+            <nav class="nav-content">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="map.html">Carte</a></li>
+                    <li><a href="about.html">Qui sommes-nous ?</a></li>
+                    <li><a href="account.html">Mon compte</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container login-container">
+        <div class="login-card">
+            <h2>Créer un compte</h2>
+            <p class="login-subtitle">Rejoignez la communauté et commencez à gagner des points.</p>
+
+            <div id="signup-message" class="hidden"></div>
+
+            <form id="signup-form">
+                
+                <div class="form-group">
+                    <label for="pseudo">Pseudo</label>
+                    <input type="text" id="pseudo" placeholder="Comment doit-on vous appeler ?" required minlength="3">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="ex: emma.dupont@exemple.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" placeholder="8 caractères minimum" required minlength="8">
+                    <small style="color: #888; font-size: 0.8rem; margin-top: 5px; display: block;">
+                        Le mot de passe doit contenir au moins 8 caractères.
+                    </small>
+                </div>
+
+                <div class="form-group" style="display: flex; align-items: start; gap: 10px;">
+                    <input type="checkbox" id="terms" required style="width: auto; margin-top: 5px;">
+                    <label for="terms" style="font-weight: 400; font-size: 0.85rem;">
+                        J'accepte de partager mes signalements avec la communauté.
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-primary full-width">S'inscrire</button>
+
+                <div class="login-footer">
+                    Déjà un compte ? <a href="account.html">Se connecter</a>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="assets/script.js"></script>
+    <script src="assets/createAccount.js"></script>
+</body>
+</html>
